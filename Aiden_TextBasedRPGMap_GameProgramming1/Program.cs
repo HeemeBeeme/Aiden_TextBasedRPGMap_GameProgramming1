@@ -23,8 +23,10 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
                                     { '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_',},
         };
 
-        static void DisplayMap()
+        static void DisplayMap(int scale)
         {
+            #region Map Draw
+
             for (int i = 0; i < mapArray.GetLength(0); i++)
             {
                 for (int j = 0; j < mapArray.GetLength(1); j++)
@@ -45,18 +47,70 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
                     {
                         Console.ForegroundColor = ConsoleColor.Green;
                     }
+
+                    for (int l = 0; l < scale; l++)
+                    {
                         Console.Write(mapArray[i, j]);
+                    }
                 }
+
+                if(scale > 1)
+                {
+                    for (int l = 0; l < scale - 1; l++)
+                    {
+                        Console.WriteLine();
+
+                        for (int j = 0; j < mapArray.GetLength(1); j++)
+                        {
+                            if (mapArray[i, j] == '-')
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            }
+                            else if (mapArray[i, j] == '~')
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            }
+                            else if (mapArray[i, j] == '^')
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkGray;
+                            }
+                            else if (mapArray[i, j] == '*')
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                            }
+
+                            for (int t = 0; t < scale; t++)
+                            {
+                                Console.Write(mapArray[i, j]);
+                            }
+                        }
+                    }
+                }
+
                 Console.ForegroundColor = ConsoleColor.Gray;
 
                 Console.WriteLine();
 
             }
+
+            #endregion
+
+
         }
 
         static void Main(string[] args)
         {
-            DisplayMap();
+            DisplayMap(1);
+            Console.ReadKey();
+            Console.Clear();
+
+            DisplayMap(2);
+            Console.ReadKey();
+            Console.Clear();
+
+            DisplayMap(3);
+            Console.ReadKey();
+            Console.Clear();
         }
     }
 }
