@@ -25,10 +25,9 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
 
         static void DisplayMap(int scale)
         {
-            #region Map Draw
-
             for (int i = 0; i < mapArray.GetLength(0); i++)
             {
+
                 for (int j = 0; j < mapArray.GetLength(1); j++)
                 {
                     if (mapArray[i, j] == '-')
@@ -56,6 +55,7 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
 
                 if(scale > 1)
                 {
+
                     for (int l = 0; l < scale - 1; l++)
                     {
                         Console.WriteLine();
@@ -87,15 +87,9 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
                     }
                 }
 
-                Console.ForegroundColor = ConsoleColor.Gray;
-
                 Console.WriteLine();
 
             }
-
-            #endregion
-
-
         }
 
         static void Main(string[] args)
