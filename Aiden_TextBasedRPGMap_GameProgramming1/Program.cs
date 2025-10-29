@@ -121,27 +121,33 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
             Console.Write("+");
             Console.WriteLine();
 
-            Console.WriteLine("\n^: Mountain\n*: Tree\n-: Grass\n~: Water");
+            Console.WriteLine($"\nMap Scale: {scale}\n^: Mountain\n*: Tree\n-: Grass\n~: Water");
 
+        }
+
+        static void PressAny()
+        {
+            Console.WriteLine("Press Any Key...");
+            Console.ReadKey();
         }
 
         static void Main(string[] args)
         {
             DisplayMap(0);
-            Console.ReadKey();
-            Console.Clear();
+            PressAny();
 
+            Console.Clear();
             DisplayMap(1);
-            Console.ReadKey();
-            Console.Clear();
+            PressAny();
 
+            Console.Clear();
             DisplayMap(2);
-            Console.ReadKey();
-            Console.Clear();
+            PressAny();
 
-            DisplayMap(3);
-            Console.ReadKey();
             Console.Clear();
+            DisplayMap(3);
+            PressAny();
+
         }
     }
 }
