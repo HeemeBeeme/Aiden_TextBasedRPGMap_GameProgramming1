@@ -25,11 +25,16 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
 
         static void DisplayMap(int scale)
         {
+
             for (int i = 0; i < mapArray.GetLength(0); i++)
             {
 
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.Write("|");
+
                 for (int j = 0; j < mapArray.GetLength(1); j++)
                 {
+
                     if (mapArray[i, j] == '-')
                     {
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -53,12 +58,17 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
                     }
                 }
 
-                if(scale > 1)
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.Write("|");
+
+                if (scale > 1)
                 {
 
                     for (int l = 0; l < scale - 1; l++)
                     {
                         Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.Write("|");
 
                         for (int j = 0; j < mapArray.GetLength(1); j++)
                         {
@@ -84,7 +94,12 @@ namespace Aiden_TextBasedRPGMap_GameProgramming1
                                 Console.Write(mapArray[i, j]);
                             }
                         }
+
+                        Console.ForegroundColor = ConsoleColor.Gray;
+                        Console.Write("|");
+
                     }
+
                 }
 
                 Console.WriteLine();
